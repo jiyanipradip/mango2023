@@ -1,0 +1,187 @@
+<?php 
+if (!defined('SAVANI_FARM')) {
+	exit;
+}
+
+
+if (isset($_GET['status']) && $_GET['status'] != '') {
+	$status = $_GET['status'];
+	$sql2   = " AND od_status = '$status'";
+	$queryString = "&status=$status";
+} else {
+	$status = '';
+	$sql2   = '';
+	$queryString = '';
+}	
+
+// for paging
+// how many rows to show per page
+$rowsPerPage = 100;
+
+$sql = "SELECT oi.orderno, o.Order_Id, o.Ship_FName, Ship_LName, o.Ship_Email_Id,o.Email_Id,o.Phone, Order_Date,o.Order_Tot,o.shipping_tracking,o.email_sent,o.invoiceno,o.od_status,o.actual_shipping,oi.orderd_qty
+               	    FROM orderdata o, ordermaster oi, productmast p 
+		WHERE oi.prod_id = p.PordId and o.Order_Id = oi.Order_Id $sql2
+		GROUP BY Order_Id
+		ORDER BY Order_Id DESC";
+		//echo $sql;
+$result     = dbQuery(getPagingQuery($sql, $rowsPerPage));
+$pagingLink = getPagingLink($sql, $rowsPerPage, $queryString);
+
+$orderStatus = array('New', 'Paid', 'Shipped', 'Decline', 'Completed', 'Cancelled');
+$orderOption = '';
+foreach ($orderStatus as $stat) {
+	$orderOption .= "<option value=\"$stat\"";
+	if ($stat == $status) {
+		$orderOption .= " selected";
+	}
+	
+	$orderOption .= ">$stat</option>\r\n";
+}
+$errorMessage   = (isset($_GET['error1']) && $_GET['error1'] != '') ? $_GET['error1'] : '&nbsp;';
+?> 
+<html>
+<head>
+<script type="text/javascript" language="javascript" src="../library/order.js"></script>
+<style type="text/css">
+ body{
+  margin:0;
+  padding:header-<length> 0 footer-<length> 0;
+ }
+ div#header{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:header-<length>;
+ }
+ div#footer{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:footer-<length>;
+ }
+ @media screen{
+  body>div#header{
+   position:fixed;
+  }
+  body>div#footer{
+   position:fixed;
+  }
+ }
+ * html body{
+  overflow:hidden;
+ } 
+ * html div#content{
+  height:100%;
+  overflow:auto;
+ }
+</style>
+</head>
+<body>
+<p class="errorMessage"><?php  echo $errorMessage; ?></p>
+<form action="processOrder.php" method="post"  name="frmOrderList" id="frmOrderList">
+<center> Order </center>
+ <table width="100%" border="0" cellspacing="0" cellpadding="2" class="ddepot-blueborder">
+ <tr align="center">
+  <td align="right" class="hdbg" colspan="">View<select name="cboOrderStatus" class="box" id="cboOrderStatus"  onChange="viewOrder();">
+    <option value="" selected>All</option>
+    <?php  echo $orderOption; ?>
+  </select></td>
+  </tr>
+</table>
+
+ <!--<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="ddepot-blueborder">-->
+ <table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="ddepot-blueborder colorchange">
+<div id="header">
+  <tr align="center" height="50"> 
+   <td width="60" class="hdbg"><span style="font-size:15px; color:#000">Order #</span></td>
+   <td width="60" class="hdbg"><span style="font-size:15px; color:#000">Order No</span></td>
+   <td width="200" class="hdbg"><span style="font-size:15px; color:#000">Customer Name</span></td>
+   <td width="60" class="hdbg"><span style="font-size:15px; color:#000">QTY</span></td>
+   <td width="60" class="hdbg"><span style="font-size:15px; color:#000">Amount</span></td>
+   <!--<td width="150" class="hdbg"><span style="font-size:15px; color:#000">Shipping Reference</span></td>-->
+   <td width="100" class="hdbg"><span style="font-size:15px; color:#000">Admin Cancel E-mail</span></td>
+   <td width="100" class="hdbg"><span style="font-size:15px; color:#000">E-mail</span></td>
+   <td width="150" class="hdbg"><span style="font-size:15px; color:#000">Phone</span></td>
+   <td width="100" class="hdbg"><span style="font-size:15px; color:#000">E-mail Sent</span></td>
+   <td width="150" class="hdbg"><span style="font-size:15px; color:#000">Order Time</span></td>      
+   <td width="70" class="hdbg"><span style="font-size:15px; color:#000">Status</span></td>
+   <td width="60" class="hdbg"><span style="font-size:15px; color:#000">Process</span></td>
+  </tr>
+</div>
+  <?php 
+$parentId = 0;
+if (dbNumRows($result) > 0) {
+	$i = 0;
+	
+	while($row = dbFetchAssoc($result)) {
+		extract($row);
+		//echo "<pre>";print_r($row);
+		$name = $Ship_FName . ' ' . $Ship_LName;
+		
+		if ($i%2) {
+			$class = 'row1';
+		} else {
+			$class = 'row2';
+		}
+;
+
+		$i += 1;
+		$od_statusStatus = array('New', 'Paid', 'Shipped', 'Decline', 'Completed', 'Cancelled');
+		$od_statusOption = '';
+		foreach ($od_statusStatus as $stat) {
+			$od_statusOption .= "<option value=\"$stat\"";
+			if ($stat == $od_status) {
+				$od_statusOption .= " selected";
+			}
+			
+			$od_statusOption .= ">$stat</option>\r\n";
+		}
+?>
+     <div id="content">
+  <tr class="<?php  echo $class; ?>"> 
+   <td width="60"><a href="<?php  echo $_SERVER['PHP_SELF']; ?>?view=detail&oid=<?php  echo $Order_Id; ?>"><?php  echo $Order_Id; ?></a></td>
+   <td width="100" align='center'><?php  echo $orderno; ?></td>
+   <td width="200"><?php echo $name ?></td>
+   <td width="60" align="center"><?php  echo ($orderd_qty); ?></td>
+   <td width="60" align="right"><?php  echo $Order_Tot;?></td>
+   <td width="150" class="hdbg"><input type="text" name="shipping_tracking<?php  echo $Order_Id; ?>" value="<?php  echo $shipping_tracking;?>">
+   <input type="text" name="actual_shipping<?php  echo $Order_Id; ?>" value="<?php  echo $actual_shipping;?>">
+   </td>
+   <td width="60" align="center"><?php echo $Email_Id; ?></td>
+   <td width="60" align="center"><?php echo $Phone; ?></td>
+   <td width="100" class="hdbg"><input type="checkbox" name="email_sent<?php  echo $Order_Id; ?>" value="Yes" <?php  if($email_sent=='Yes') echo 'checked="checked"';?>></td>
+   <td width="150" align="center"><?php  echo $Order_Date; ?></td>
+   <td width="70" align="center"><select name="od_status<?php  echo $Order_Id; ?>" class="box" id="od_status<?php  echo $Order_Id; ?>">
+    <option value="" selected>All</option>
+    <?php  echo $od_statusOption; ?>
+  </select></td>
+   <td width="60" class="hdbg"><input type="button" name="Save" value="Save" onClick="UpdateOrder(window.document.frmOrderList.od_status<?php  echo $Order_Id; ?>,window.document.frmOrderList.email_sent<?php  echo $Order_Id; ?>,window.document.frmOrderList.shipping_tracking<?php  echo $Order_Id; ?>,window.document.frmOrderList.actual_shipping<?php  echo $Order_Id; ?>,'<?php  echo $Order_Id; ?>')"></td>
+  </tr>
+     </div>
+  <?php 
+	} // end while
+
+?>
+  <tr> 
+   <td colspan="11" align="center">
+   <?php  
+   echo $pagingLink;
+   ?></td>
+  </tr>
+<?php 
+} else {
+?>
+  <tr> 
+   <td colspan="11" align="center">No Orders Found </td>
+  </tr>
+  <?php 
+}
+?>
+
+ </table>
+ <p>&nbsp;</p>
+</form>
+</body>
+</html>

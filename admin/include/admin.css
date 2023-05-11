@@ -1,0 +1,448 @@
+#listTableHeader {
+	font-family: "Courier New", Courier, mono;
+	font-size: 14px;
+	color: #FFFFFF;
+	background-color: #7F92A4;
+	font-weight: bold;
+	background-position: center;
+}
+
+#infoTableHeader {
+	font-family: "Courier New", Courier, mono;
+	font-size: 14px;
+	color: #FFFFFF;
+	background-color: #7F92A4;
+	font-weight: bold;
+	background-position: center;
+}
+
+#entryTableHeader {
+	font-family: "Courier New", Courier, mono;
+	font-size: 14px;
+	color: #FFFFFF;
+	background-color: #7F92A4;
+	font-weight: bold;
+	background-position: center;
+}
+
+.ddepot-blueborder.colorchange{ 
+	color:#000;
+}
+
+.entryTable {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	background-color: #DDDDDD;
+}
+
+.entryTable .label {
+	background-color: #EFEFEF;
+}
+
+.entryTable .content {
+	background-color: #FFFFFF;
+}
+
+
+.formTitle {
+	font-family: "Courier New", Courier, mono;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.box {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border: 1px solid #578f14;
+}
+
+.bluebox {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #578f14;
+	border: 1px solid #578f14;
+}
+
+.topNav {
+	font-family: "Courier New", "Courier", "mono";
+	font-size: 14px;
+	background-color: #FFFFFF;
+}
+
+.activeTopNav {
+	font-family: "Courier New", "Courier", "mono";
+	font-size: 14px;
+	background-color: #CCCCFF;
+}
+
+.row1 {
+	background-color: #EFEFEF;
+}
+
+.row2 {
+	background-color: #DEDEDE;
+}
+
+.errorMessage {
+	font-family: "Courier New", "Courier", "mono";
+	font-size: 12px;
+	font-weight: bolder;
+	color: #CC3300;
+}
+
+body {
+	font-family: "Arial", "Helvetica", "sans-serif";
+	text-align: center;
+	font-size: 10px;
+	font-color:#FFCC33;
+}
+
+.text {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+td.nav {
+	font-family: "Courier New", "Courier", "mono";
+	font-size: 14px;
+	font-weight: normal;
+	color: #FFFFFF;
+	text-decoration: none;
+	background-color: #6699CC;
+}
+
+td.nav:hover {
+	font-family: "Courier New", "Courier", "mono";
+	font-size: 14px;
+	font-weight: normal;
+	color: #000000;
+	text-decoration: none;
+	background-color: #97C1E7;
+}
+
+a.nav {
+	font-family: "Courier New", "Courier", "mono";
+	font-size: 14px;
+	font-weight: normal;
+	color: #FFFFFF;
+	text-decoration: none;
+	display: block;
+}
+
+a.nav:hover {
+	font-family: "Courier New", "Courier", "mono";
+	font-size: 14px;
+	font-weight: normal;
+	color: #000000;
+	text-decoration: none;
+	display: block;	
+}
+
+.navSelected {
+	font-family: "Courier New", "Courier", "mono";
+	font-size: 14px;
+	font-weight: normal;
+	color: #333333;
+	text-decoration: none;
+	background-color: #DEDEDC;
+}
+
+a.bottomNav {
+	font-family: "Courier New", "Courier", "mono";
+	font-size: 12px;
+	font-weight: normal;
+	color: #333333;
+	text-decoration: underline;
+}
+
+a.bottomNav:hover {
+	font-family: "Courier New", "Courier", "mono";
+	font-size: 12px;
+	font-weight: normal;
+	color: #333333;
+	text-decoration: none;
+}
+
+.detail {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right-color: #578f14;
+	border-bottom-color: #578f14;
+	border-left-color: #578f14;
+	background-color: #FFFFFF;
+}
+
+.detailSpacer {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #578f14;
+}
+
+.tabSelected {
+	font-family: "Courier New", Courier, mono;
+	font-size: 14px;
+	font-weight: bolder;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-top-color: #578f14;
+	border-right-color: #578f14;
+	border-left-color: #578f14;
+	background-color: #97C1E7;
+}
+
+.tabSelected:hover {
+	font-family: "Courier New", "Courier", "mono";
+	font-size: 12px;
+	font-weight: normal;
+	color: #000000;
+	text-decoration: underline;
+	background-color: #97C1E7;
+}
+
+.tabNotSelected {
+	font-family: "Courier New", Courier, mono;
+	font-size: 12px;
+	background-color: #EEEEEE;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #578f14;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-top-color: #578f14;
+	border-right-color: #578f14;
+	border-left-color: #578f14;	
+}
+
+.tabNotSelected:hover {
+	font-family: "Courier New", Courier, mono;
+	font-size: 12px;
+	background-color: #FFFFCC;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #578f14;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-top-color: #578f14;
+	border-right-color: #578f14;
+	border-left-color: #578f14;	
+}
+
+a.tabNav {
+	color: #000000;
+	text-decoration: underline;
+	font-weight: bolder;
+}
+
+a.tabNav:hover {
+	color: #000099;
+	text-decoration: none;
+	font-weight: bolder;
+}
+
+.whiteTable {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border: 1px solid #578f14;
+	background-color: #FFFFFF;
+}
+
+.lightBlue {
+	background-color: #AACCFF;
+}
+
+.navArea {
+	background-color: #FFFFFF;
+}
+
+.contentArea {
+	background-color: #FFFFFF;
+}
+
+a.leftnav {
+	font-family: "Courier New", Courier, mono;
+	font-size: 14px;
+	color: #333333;
+	background-color: #AABBCC;
+	display: block;
+	padding: 2px 2px 2px 5px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #578f14;
+	height: 25px;
+	width: 150px;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a.leftnav:hover {
+	font-family: "Courier New", Courier, mono;
+	font-size: 14px;
+	color: #FFFFFF;
+	background-color: #999999;
+	display: block;
+	padding: 2px 2px 2px 5px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #578f14;
+	height: 25px;
+	width: 150px;
+	text-decoration: none;
+	font-weight: bold;
+}
+.graybox {
+	background-color: #666666;
+}
+
+.footer {
+	font-size: 10px;
+}
+
+fieldset
+{
+	border: #26a solid 1px;
+}
+
+legend
+{
+	background: #fb0;
+	border: #26a solid 1px;
+	padding: 1px 10px;
+	font-weight: bold;
+}
+
+.errorMessage {
+	color: #990000;
+	font-family: "Courier New", Courier, mono;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.detailTable {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	background-color: #DDDDDD;
+}
+
+.detailTable .label {
+	background-color: #EFEFEF;
+}
+
+.detailTable .content {
+	background-color: #FFFFFF;
+}
+/*table start with blue border */
+
+
+.ddepot-blueborder {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	/*color: #0099CC;
+	*/
+	color:#B5D926;
+/*
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 11px;
+color: #000000;
+*/
+}
+
+
+
+.ddepot-blueborder table { border: 1px solid # border-collapse: collapse; } 
+
+.ddepot-blueborder td {  
+	border-bottom: 1px solid #578f14; 
+	border-left: 1px solid  #578f14; 
+	border-right: 1px solid  #578f14; 
+	background-color: #FFFFFF;
+}
+.ddepot-blueborder .nb { border: none; }
+
+.ddepot-blueborder a:link { font-size: 12px; font-weight: normal; color: #315e04; text-decoration: none; font-weight:bold; }
+.ddepot-blueborder a:visited { font-size: 12px; font-weight: normal; color: #315e04; text-decoration: none; font-weight:bold; }
+.ddepot-blueborder a:hover { font-size: 12px; font-weight: normal; color: #315e04; text-decoration: underline; font-weight:bold; }
+
+
+
+.ddepot-blueborder .hdbg {
+background-color: #FFCC33;
+height: 19px;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
+color: #FFFFFF;
+font-weight: bold;
+text-align: center;
+vertical-align: middle;
+}
+.ddepot-blueborder .hdbgk {
+background-color: #FFFFFF;
+height: 19px;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
+color: #B5D926;
+font-weight: bold;
+text-align: center;
+vertical-align: middle;
+}
+
+.ddepot-blueborder .hdbg  a:link { font-weight: bold; color: #FFFFFF; text-decoration: none; }
+.ddepot-blueborder .hdbg  a:visited  { font-weight: bold; color: #FFFFFF; text-decoration: none; }
+.ddepot-blueborder .hdbg  a:hover { font-weight: bold; color: #9ce7f5; text-decoration: underline; }
+
+/*table end with blue border */
+.maintable{
+	border:1px solid #578f14;
+	padding:3px 3px 3px 3px;
+	font:12px Arial, Helvetica, sans-serif #000;
+}
+.maintable .leftbtm{
+	border-bottom: 1px solid #578f14;
+	border-right:1px solid #578f14;
+}
+.maintable .leftbtm2{	
+	border-right:1px solid #578f14;
+}
+.maintable .rightbrd{
+	border-right:1px solid #578f14;
+}
+.maintable .leftrightbrd{
+	border-right:1px solid #578f14;
+	border-left:1px solid #578f14;
+}
+.maintable .topbrd{
+	border-top:1px solid #578f14;
+}
+
+.maintable .btmbrd{
+	border-bottom: 1px solid #578f14;
+}
+
+
+.maintable .trbbrd{
+	border-bottom: 1px solid #578f14;
+	border-top: 1px solid #578f14;
+	border-right:1px solid #578f14;
+	padding: 2px 2px 2px 6px;	
+}

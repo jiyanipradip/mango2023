@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /register.php
+Disallow: /login.php
+Disallow: /placeanorder.php?flag=Product%20Catalog&pricingtype=DOLLOR

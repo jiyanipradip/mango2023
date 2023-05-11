@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Document */
+table.reference
+{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	border:1px solid #d4eaf2;
+	border-collapse:collapse;
+	color:#0d6e91;
+	background:#f7f7f7;
+	overflow:scroll;
+	
+}
+
+table.reference th
+{
+background-color:#f7f7f7;
+border:1px solid #d4eaf2;
+padding:3px;
+vertical-align:top;
+}
+
+table.reference td 
+{
+border:1px solid #d4eaf2;
+padding:3px;
+vertical-align:top;
+}
